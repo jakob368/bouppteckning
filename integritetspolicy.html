@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Integritetspolicy | Enkel Bouppteckning</title>
+  <meta name="description" content="Så behandlar Enkel Bouppteckning (Rydberg Juridik) dina personuppgifter.">
+  <meta name="robots" content="noindex">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header class="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="logo">Enkel <em>Bouppteckning</em></a>
+    <button class="nav-toggle" aria-label="Meny" onclick="this.nextElementSibling.classList.toggle('open')" aria-expanded="false">☰</button>
+    <ul class="nav-links">
+      <li><a href="index.html">Hem</a></li>
+      <li><a href="vid-dodsfall.html">Vid dödsfall</a></li>
+      <li><a href="bouppteckning.html">Bouppteckning</a></li>
+      <li><a href="faq.html">Frågor &amp; svar</a></li>
+      <li><a href="om-oss.html">Om oss</a></li>
+      <li><a href="index.html#boka" class="btn btn-primary btn-sm">Boka samtal</a></li>
+    </ul>
+  </div>
+</header>
+
+<section class="page-hero">
+  <div class="container-narrow">
+    <span class="eyebrow">Integritet</span>
+    <h1>Integritetspolicy</h1>
+    <p class="lead">Här beskriver vi hur vi behandlar dina personuppgifter när du använder enkelbouppteckning.se eller kontaktar oss.</p>
+  </div>
+</section>
+
+<div class="container-narrow prose">
+
+  <!-- PLACEHOLDER-UTKAST: låt en jurist granska innan publicering. Fyll i org.nr och adress. -->
+
+  <h2>Personuppgiftsansvarig</h2>
+  <p>Rydberg Juridik, en del av WHND Holding AB, org.nr 556921-6210, är personuppgiftsansvarig för behandlingen av dina personuppgifter. Du når oss på request@bouppteckningonline.se.</p>
+
+  <h2>Vilka uppgifter vi samlar in</h2>
+  <p>När du skickar in vårt kontaktformulär behandlar vi de uppgifter du lämnar: namn, e-postadress, telefonnummer samt övergripande uppgifter om dödsboet (till exempel din relation till den avlidne, antal dödsbodelägare och om det finns fastighet eller testamente). Webbplatsen använder inga analys- eller marknadsföringscookies.</p>
+
+  <h2>Varför och med vilket stöd</h2>
+  <p>Uppgifterna används för att kontakta dig, bedöma om vår tjänst passar ditt ärende och genomföra det kostnadsfria inledande samtalet. Den rättsliga grunden är åtgärder inför att ingå avtal (art. 6.1 b GDPR) samt ditt samtycke (art. 6.1 a GDPR) som du lämnar via kryssrutan i formuläret. Du kan när som helst återkalla ditt samtycke.</p>
+
+  <h2>Hur länge vi sparar uppgifterna</h2>
+  <p>Blir ditt ärende inte aktuellt raderar vi dina uppgifter inom [3 månader]. Blir du klient sparas uppgifterna så länge det krävs för uppdraget och enligt de lagkrav som gäller för juridisk verksamhet.</p>
+
+  <h2>Vilka som tar del av uppgifterna</h2>
+  <p>Dina uppgifter delas inte med tredje part för marknadsföring. För formulärhanteringen använder vi Formspree Inc. som personuppgiftsbiträde; överföring till USA sker med stöd av EU:s standardavtalsklausuler och EU–US Data Privacy Framework. Webbplatsens typsnitt laddas från Google Fonts, vilket innebär att din IP-adress kan komma att behandlas av Google.</p>
+
+  <h2>Dina rättigheter</h2>
+  <p>Du har rätt att begära tillgång till, rättelse eller radering av dina personuppgifter, begränsning av behandlingen, dataportabilitet samt att invända mot behandling. Kontakta oss på request@bouppteckningonline.se. Du har också rätt att lämna klagomål till Integritetsskyddsmyndigheten (IMY).</p>
+
+  <p><em>Senast uppdaterad: [datum]</em></p>
+
+</div>
+
+<footer>
+  <div class="container footer-inner">
+    <div>
+      <a href="index.html" class="logo">Enkel <em>Bouppteckning</em></a>
+      <p style="margin-top:10px;">Rydberg Juridik, en del av WHND Holding AB · enkelbouppteckning.se</p>
+    </div>
+    <ul class="footer-links">
+      <li><a href="vid-dodsfall.html">Att tänka på vid dödsfall</a></li>
+      <li><a href="bouppteckning.html">Bouppteckning</a></li>
+      <li><a href="faq.html">Frågor &amp; svar</a></li>
+      <li><a href="om-oss.html">Om oss</a></li>
+      <li><a href="index.html#boka">Boka samtal</a></li>
+      <li><a href="integritetspolicy.html">Integritetspolicy</a></li>
+    </ul>
+  </div>
+</footer>
+
+<script>
+  const io = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); } });
+  }, { threshold: 0.12 });
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+</script>
+
+</body>
+</html>
