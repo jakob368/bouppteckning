@@ -220,15 +220,33 @@ a { color: var(--accent); }
 }
 .hero-actions { display: flex; gap: 14px; flex-wrap: wrap; }
 .hero-meta {
-  margin-top: 46px;
+  margin-top: 42px;
   display: flex;
-  gap: 28px;
-  flex-wrap: wrap;
-  font-size: .9rem;
-  color: var(--ink-faint);
+  flex-direction: column;
+  gap: 14px;
+  font-size: .98rem;
+  color: var(--ink);
 }
-.hero-meta span { display: inline-flex; align-items: center; gap: 8px; }
-.hero-meta .dot { color: var(--brass); }
+.hero-meta .usp {
+  display: inline-flex;
+  align-items: center;
+  gap: 14px;
+  font-weight: 500;
+  letter-spacing: .01em;
+}
+.hero-meta .dot {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  flex-shrink: 0;
+  border: 1.5px solid var(--brass);
+  border-radius: 50%;
+  color: var(--brass);
+  font-size: .72rem;
+  font-weight: 700;
+}
 
 /* ---------- Sektioner ---------- */
 section { padding: clamp(60px, 9vw, 110px) 0; }
@@ -332,6 +350,15 @@ section { padding: clamp(60px, 9vw, 110px) 0; }
   letter-spacing: .08em;
   text-transform: uppercase;
   color: var(--brass-soft);
+}
+.price-note {
+  flex-basis: 100%;
+  position: relative;
+  margin-top: 4px;
+  padding-top: 16px;
+  border-top: 1px solid rgba(250, 246, 239, .18);
+  font-size: .83rem;
+  color: rgba(255, 255, 255, .60) !important;
 }
 
 /* ---------- FAQ ---------- */
@@ -550,6 +577,97 @@ fieldset.checks legend {
   border-radius: 999px;
   padding: 6px 16px;
   margin: clamp(40px, 6vw, 56px) 0 6px;
+}
+
+/* ---------- Faktaruta med frågetecken ---------- */
+.factbox {
+  display: flex;
+  gap: 24px;
+  align-items: flex-start;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: clamp(26px, 4vw, 38px);
+  margin-bottom: clamp(40px, 6vw, 56px);
+}
+.factbox-icon {
+  flex-shrink: 0;
+  width: 54px;
+  height: 54px;
+  border-radius: 50%;
+  border: 1.5px solid var(--brass);
+  background: rgba(217, 190, 156, .18);
+  color: var(--brass);
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: 1.9rem;
+  line-height: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.prose .factbox h2 { margin: 4px 0 12px; font-size: clamp(1.4rem, 2.6vw, 1.7rem); }
+.factbox p { margin-bottom: 14px; font-size: .97rem; }
+.factbox p:last-child { margin-bottom: 0; }
+@media (max-width: 560px) {
+  .factbox { flex-direction: column; gap: 16px; }
+}
+
+/* ---------- Klickbara processteg ---------- */
+.steps { margin: 26px 0 10px; }
+.step-item { border-bottom: 1px solid var(--line); }
+.step-item:first-child { border-top: 1px solid var(--line); }
+.step-item summary {
+  cursor: pointer;
+  list-style: none;
+  display: flex;
+  align-items: baseline;
+  gap: 18px;
+  padding: 22px 0;
+  transition: color .2s;
+}
+.step-item summary::-webkit-details-marker { display: none; }
+.step-num {
+  font-family: var(--font-display);
+  font-style: italic;
+  color: var(--brass);
+  font-size: 1.05rem;
+  min-width: 30px;
+  flex-shrink: 0;
+}
+.step-label {
+  font-size: .74rem;
+  font-weight: 600;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--accent);
+  min-width: 110px;
+  flex-shrink: 0;
+}
+.step-title {
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  color: var(--ink);
+  flex: 1;
+}
+.step-item summary::after {
+  content: "+";
+  font-size: 1.3rem;
+  color: var(--brass);
+  transition: transform .25s ease;
+  flex-shrink: 0;
+  align-self: center;
+}
+.step-item[open] summary::after { transform: rotate(45deg); }
+.step-item summary:hover .step-title { color: var(--accent); }
+.step-body { padding: 0 34px 24px 48px; }
+.step-body p { font-size: .97rem; margin-bottom: 0; }
+@media (max-width: 640px) {
+  .step-item summary { flex-wrap: wrap; gap: 8px 14px; }
+  .step-label { min-width: 0; }
+  .step-title { flex-basis: 100%; }
+  .step-body { padding: 0 0 22px 0; }
 }
 
 /* ---------- CTA-banner ---------- */
