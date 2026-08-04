@@ -558,6 +558,32 @@ fieldset.checks legend {
 .form-footer small { color: var(--ink-faint); max-width: 380px; font-size: .8rem; line-height: 1.5; }
 .check.consent { grid-column: 1 / -1; font-size: .88rem; }
 .check.consent a { color: var(--accent); }
+.form-error {
+  grid-column: 1 / -1;
+  background: #FBEFEA;
+  border: 1px solid #D9A08A;
+  border-radius: var(--radius-sm);
+  padding: 14px 18px;
+  font-size: .9rem;
+  color: #7A3B22;
+}
+.form-error a { color: #7A3B22; font-weight: 600; }
+
+/* Boka tid-sidan */
+.cal-wrap {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: clamp(10px, 2vw, 24px);
+  min-height: 640px;
+}
+#cal-inline { width: 100%; min-height: 620px; }
+.cal-fallback {
+  margin-top: 18px;
+  font-size: .88rem;
+  color: var(--ink-faint);
+}
 .form-note {
   grid-column: 1 / -1;
   margin-top: 22px;

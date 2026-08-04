@@ -217,8 +217,10 @@
         <div class="form-footer">
           <button type="button" id="btn-back" class="btn btn-ghost btn-sm">← Tillbaka</button>
           <small>Vi delar aldrig dina uppgifter med tredje part och raderar dem om ärendet inte blir aktuellt.</small>
-          <button type="submit" class="btn btn-primary">Skicka förfrågan <span class="arrow">→</span></button>
+          <button type="submit" id="btn-submit" class="btn btn-primary">Skicka förfrågan <span class="arrow">→</span></button>
         </div>
+
+        <p class="form-error" id="form-error" hidden>Något gick tyvärr fel när förfrågan skulle skickas. Försök igen om en stund, eller mejla oss direkt på <a href="mailto:christina@enkelbouppteckning.se">christina@enkelbouppteckning.se</a>.</p>
 
         <p class="form-note">Enkel Bouppteckning är utformad för dödsbon med okomplicerade förhållanden. Vi ringer upp alla vars ärende passar tjänsten. Bedömer vi att ert dödsbo behöver en annan typ av hjälp återkopplar vi via e-post och hänvisar er gärna vidare.</p>
 
@@ -283,6 +285,36 @@
   }
   kvalRutor.forEach(c => c.addEventListener('change', uppdateraNasta));
   uppdateraNasta();
+
+  // AJAX-inskick: skicka till Formspree i bakgrunden och gå vidare till tidsbokningen
+  const form = document.querySelector('.form-wrap');
+  const btnSubmit = document.getElementById('btn-submit');
+  const formError = document.getElementById('form-error');
+
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    formError.hidden = true;
+    btnSubmit.disabled = true;
+    btnSubmit.textContent = 'Skickar…';
+    try {
+      const data = new FormData(form);
+      const res = await fetch(form.action, {
+        method: 'POST',
+        body: data,
+        headers: { 'Accept': 'application/json' }
+      });
+      if (!res.ok) throw new Error('Formspree svarade ' + res.status);
+      try {
+        sessionStorage.setItem('eb_namn', data.get('namn') || '');
+        sessionStorage.setItem('eb_epost', data.get('epost') || '');
+      } catch (err) {}
+      window.location.href = 'boka-tid.html';
+    } catch (err) {
+      formError.hidden = false;
+      btnSubmit.disabled = false;
+      btnSubmit.innerHTML = 'Skicka förfrågan <span class="arrow">→</span>';
+    }
+  });
 </script>
 
 </body>

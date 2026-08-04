@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Boka tid för samtal | Enkel Bouppteckning</title>
+  <meta name="description" content="Välj en tid för ditt kostnadsfria samtal.">
+  <meta name="robots" content="noindex">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header class="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="logo">Enkel <em>Bouppteckning</em></a>
+    <button class="nav-toggle" aria-label="Meny" onclick="this.nextElementSibling.classList.toggle('open')" aria-expanded="false">☰</button>
+    <ul class="nav-links">
+      <li><a href="index.html">Hem</a></li>
+      <li><a href="vid-dodsfall.html">Vid dödsfall</a></li>
+      <li><a href="bouppteckning.html">Bouppteckning</a></li>
+      <li><a href="faq.html">Frågor &amp; svar</a></li>
+      <li><a href="om-oss.html">Om oss</a></li>
+    </ul>
+  </div>
+</header>
+
+<section class="page-hero" style="padding-bottom: 20px;">
+  <div class="container-narrow">
+    <span class="eyebrow">Tack för din förfrågan</span>
+    <h1>Välj en tid som passar dig</h1>
+    <p class="lead">Vi har tagit emot dina uppgifter. Boka ditt kostnadsfria samtal på cirka 15 minuter direkt i kalendern nedan – vi ringer upp dig på den tid du väljer. Kvällar och helger går också bra.</p>
+  </div>
+</section>
+
+<section style="padding-top: 20px;">
+  <div class="container">
+    <div class="cal-wrap">
+      <div id="cal-inline"></div>
+    </div>
+    <p class="cal-fallback">Visas inte kalendern? <a href="https://cal.com/bouppteckning/15min" rel="noopener">Öppna bokningen i ett nytt fönster</a> – eller mejla oss på <a href="mailto:christina@enkelbouppteckning.se">christina@enkelbouppteckning.se</a> så återkommer vi med tidsförslag.</p>
+  </div>
+</section>
+
+<footer>
+  <div class="container footer-inner">
+    <div>
+      <a href="index.html" class="logo">Enkel <em>Bouppteckning</em></a>
+      <p style="margin-top:10px;">Rydberg Juridik, en del av WHND Holding AB · enkelbouppteckning.se</p>
+    </div>
+    <ul class="footer-links">
+      <li><a href="vid-dodsfall.html">Att tänka på vid dödsfall</a></li>
+      <li><a href="bouppteckning.html">Bouppteckning</a></li>
+      <li><a href="faq.html">Frågor &amp; svar</a></li>
+      <li><a href="om-oss.html">Om oss</a></li>
+      <li><a href="integritetspolicy.html">Integritetspolicy</a></li>
+    </ul>
+  </div>
+</footer>
+
+<script>
+  // Cal.com inline-inbäddning
+  (function (C, A, L) { let p = function (a, ar) { a.q.push(ar); }; let d = C.document; C.Cal = C.Cal || function () { let cal = C.Cal; let ar = arguments; if (!cal.loaded) { cal.ns = {}; cal.q = cal.q || []; d.head.appendChild(d.createElement("script")).src = A; cal.loaded = true; } if (ar[0] === L) { const api = function () { p(api, arguments); }; const namespace = ar[1]; api.q = api.q || []; if (typeof namespace === "string") { cal.ns[namespace] = cal.ns[namespace] || api; p(cal.ns[namespace], ar); p(cal, ["initNamespace", namespace]); } else p(cal, ar); return; } p(cal, ar); }; })(window, "https://app.cal.com/embed/embed.js", "init");
+
+  // Förifyll namn och e-post från formuläret (sparas i sessionStorage vid inskick)
+  const forifyll = {};
+  try {
+    const n = sessionStorage.getItem('eb_namn');
+    const e = sessionStorage.getItem('eb_epost');
+    if (n) forifyll.name = n;
+    if (e) forifyll.email = e;
+  } catch (err) {}
+
+  Cal("init", "15min", { origin: "https://cal.com" });
+  Cal.ns["15min"]("inline", {
+    elementOrSelector: "#cal-inline",
+    config: Object.assign({ layout: "month_view" }, forifyll),
+    calLink: "bouppteckning/15min"
+  });
+  Cal.ns["15min"]("ui", {
+    styles: { branding: { brandColor: "#2E4B3F" } },
+    hideEventTypeDetails: false,
+    layout: "month_view"
+  });
+</script>
+
+</body>
+</html>
