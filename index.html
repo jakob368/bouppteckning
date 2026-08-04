@@ -144,21 +144,35 @@
       <p>Berätta kort om er situation så ringer vi upp för ett kostnadsfritt samtal på cirka 15 minuter. Ni förbinder er inte till någonting.</p>
     </div>
 
-    <!-- FORMSPREE: skapa konto på formspree.io, sätt mottagare till request@bouppteckningonline.se
-         och ersätt DITT-FORM-ID nedan med ert riktiga form-ID. -->
-    <form class="form-wrap reveal" action="https://formspree.io/f/DITT-FORM-ID" method="POST">
-      <div class="form-grid">
+    <form class="form-wrap reveal" action="https://formspree.io/f/mqpzzdqz" method="POST">
+
+      <p class="steps-indicator"><strong>Steg <span id="step-nr">1</span> av 2</strong> · <span id="step-name">Om den avlidne</span></p>
+
+      <div class="form-grid" id="form-step-1">
+
+        <h3 class="form-section-title first">Om den avlidne</h3>
 
         <fieldset class="checks">
-          <legend>Stämmer något av följande in på dödsboet?</legend>
-          <!-- PLACEHOLDER: justera checkrutorna vid behov -->
-          <label class="check"><input type="checkbox" name="fastighet" value="ja"> Det finns en fastighet eller bostadsrätt i dödsboet</label>
-          <label class="check"><input type="checkbox" name="testamente" value="ja"> Det finns ett testamente</label>
-          <label class="check"><input type="checkbox" name="foretag" value="ja"> Det finns företag eller andra komplexa tillgångar</label>
+          <label class="check"><input type="checkbox" id="chk-myndig" name="avliden_myndig" value="ja" required> <span>Den avlidne var myndig (18 år eller äldre)</span></label>
+          <label class="check"><input type="checkbox" id="chk-medborgare" name="avliden_medborgare_bosatt" value="ja" required> <span>Den avlidne var svensk medborgare och bosatt i Sverige</span></label>
         </fieldset>
 
-        <!-- PLACEHOLDER: justera dropdown-alternativen vid behov -->
+        <div class="field full">
+          <label for="avliden-namn">Den avlidnes namn</label>
+          <input type="text" id="avliden-namn" name="avliden_namn" required>
+        </div>
+
         <div class="field">
+          <label for="avliden-pnr">Personnummer <span class="optional">(om du har det till hands)</span></label>
+          <input type="text" id="avliden-pnr" name="avliden_personnummer" inputmode="numeric" placeholder="ÅÅÅÅMMDD-XXXX">
+        </div>
+
+        <div class="field">
+          <label for="dodsdatum">Dödsdatum</label>
+          <input type="date" id="dodsdatum" name="dodsdatum" required>
+        </div>
+
+        <div class="field full">
           <label for="relation">Din relation till den avlidne</label>
           <select id="relation" name="relation" required>
             <option value="" selected disabled>Välj…</option>
@@ -170,28 +184,16 @@
           </select>
         </div>
 
-        <div class="field">
-          <label for="delagare">Antal dödsbodelägare</label>
-          <select id="delagare" name="antal_dodsbodelagare" required>
-            <option value="" selected disabled>Välj…</option>
-            <option>1</option>
-            <option>2–3</option>
-            <option>4–6</option>
-            <option>Fler än 6</option>
-            <option>Vet ej</option>
-          </select>
+        <div class="form-footer">
+          <small>I nästa steg fyller du i dina kontaktuppgifter.</small>
+          <button type="button" id="btn-next" class="btn btn-primary">Nästa steg <span class="arrow">→</span></button>
         </div>
 
-        <div class="field full">
-          <label for="nar">När inträffade dödsfallet?</label>
-          <select id="nar" name="nar_dodsfall" required>
-            <option value="" selected disabled>Välj…</option>
-            <option>Senaste månaden</option>
-            <option>1–2 månader sedan</option>
-            <option>Mer än 2 månader sedan</option>
-            <option>Inte ännu – jag förbereder mig</option>
-          </select>
-        </div>
+      </div>
+
+      <div class="form-grid" id="form-step-2" hidden>
+
+        <h3 class="form-section-title first">Dina kontaktuppgifter</h3>
 
         <div class="field full">
           <label for="namn">Namn</label>
@@ -210,9 +212,10 @@
 
         <input type="hidden" name="_subject" value="Ny förfrågan – Enkel Bouppteckning">
 
-        <label class="check consent"><input type="checkbox" name="samtycke" value="ja" required> Jag godkänner att mina personuppgifter behandlas för att ni ska kunna kontakta mig, i enlighet med <a href="integritetspolicy.html">integritetspolicyn</a>.</label>
+        <label class="check consent"><input type="checkbox" name="samtycke" value="ja" required> <span>Jag godkänner att mina personuppgifter behandlas för att ni ska kunna kontakta mig, i enlighet med <a href="integritetspolicy.html">integritetspolicyn</a>.</span></label>
 
         <div class="form-footer">
+          <button type="button" id="btn-back" class="btn btn-ghost btn-sm">← Tillbaka</button>
           <small>Vi delar aldrig dina uppgifter med tredje part och raderar dem om ärendet inte blir aktuellt.</small>
           <button type="submit" class="btn btn-primary">Skicka förfrågan <span class="arrow">→</span></button>
         </div>
@@ -247,6 +250,39 @@
     entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); } });
   }, { threshold: 0.12 });
   document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+  // Tvåstegsformulär
+  const step1 = document.getElementById('form-step-1');
+  const step2 = document.getElementById('form-step-2');
+  const stepNr = document.getElementById('step-nr');
+  const stepName = document.getElementById('step-name');
+  const formWrap = document.querySelector('.form-wrap');
+
+  function gotoStep(n) {
+    step1.hidden = (n === 2);
+    step2.hidden = (n === 1);
+    stepNr.textContent = n;
+    stepName.textContent = (n === 1) ? 'Om den avlidne' : 'Dina kontaktuppgifter';
+    formWrap.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
+
+  const btnNext = document.getElementById('btn-next');
+  btnNext.addEventListener('click', () => {
+    for (const el of step1.querySelectorAll('[required]')) {
+      if (!el.reportValidity()) return;
+    }
+    gotoStep(2);
+  });
+
+  document.getElementById('btn-back').addEventListener('click', () => gotoStep(1));
+
+  // Nästa steg-knappen aktiveras visuellt först när båda kryssrutorna är ifyllda
+  const kvalRutor = [document.getElementById('chk-myndig'), document.getElementById('chk-medborgare')];
+  function uppdateraNasta() {
+    btnNext.classList.toggle('ready', kvalRutor.every(c => c.checked));
+  }
+  kvalRutor.forEach(c => c.addEventListener('change', uppdateraNasta));
+  uppdateraNasta();
 </script>
 
 </body>
