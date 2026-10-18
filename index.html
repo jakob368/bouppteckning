@@ -8,9 +8,38 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="canonical" href="https://www.enkelbouppteckning.se/">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="sv_SE">
+  <meta property="og:site_name" content="Enkel Bouppteckning">
+  <meta property="og:title" content="Enkel Bouppteckning – bouppteckning utan krångel">
+  <meta property="og:description" content="Vi hjälper er med hela bouppteckningen: tryggt, personligt och till fast pris. Boka ett kostnadsfritt samtal idag.">
+  <meta property="og:url" content="https://www.enkelbouppteckning.se/">
+  <meta property="og:image" content="https://www.enkelbouppteckning.se/og-image.jpg">
+  <meta name="twitter:card" content="summary_large_image">
   <link rel="icon" type="image/svg+xml" href="favicon.svg">
   <link rel="apple-touch-icon" href="apple-touch-icon.png">
   <link rel="stylesheet" href="styles.css">
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "LegalService",
+  "name": "Enkel Bouppteckning",
+  "url": "https://www.enkelbouppteckning.se/",
+  "description": "Hjälp med hela bouppteckningen till fast pris, 8 995 kr inkl. moms. Digitalt i hela Sverige, med en och samma kontaktperson genom hela ärendet.",
+  "image": "https://www.enkelbouppteckning.se/og-image.jpg",
+  "priceRange": "8 995 kr",
+  "email": "christina@enkelbouppteckning.se",
+  "areaServed": {
+    "@type": "Country",
+    "name": "SE"
+  },
+  "parentOrganization": {
+    "@type": "Organization",
+    "name": "Rydberg Juridik, en del av WHND Holding AB"
+  }
+}
+  </script>
 </head>
 <body>
 
@@ -24,7 +53,7 @@
       <li><a href="bouppteckning.html">Bouppteckning</a></li>
       <li><a href="faq.html">Frågor &amp; svar</a></li>
       <li><a href="om-oss.html">Om oss</a></li>
-      <li><a href="#boka" class="btn btn-primary btn-sm">Boka samtal</a></li>
+      <li><a href="#boka" class="btn btn-primary btn-sm">Kostnadsfritt samtal</a></li>
     </ul>
   </div>
 </header>
@@ -40,7 +69,7 @@
       <h1>En <em>enkel</em> väg genom bouppteckningen.</h1>
       <p class="lead">Att förlora någon är svårt nog. För dödsbon med okomplicerade förhållanden tar vi hand om hela bouppteckningen, med en och samma person vid er sida från första samtal till registrering hos Skatteverket.</p>
       <div class="hero-actions">
-        <a href="#boka" class="btn btn-primary">Boka kostnadsfritt samtal <span class="arrow">→</span></a>
+        <a href="#boka" class="btn btn-primary">Få ett kostnadsfritt samtal <span class="arrow">→</span></a>
         <a href="#tjansten" class="btn btn-ghost">Läs mer om tjänsten</a>
       </div>
       <div class="hero-meta">
@@ -64,7 +93,7 @@
       <div class="card reveal">
         <span class="num">01 — Kostnadsfritt samtal</span>
         <h3>Vi ringer upp och lär känna er situation</h3>
-        <p>Berätta kort om dödsboet i <a href="#boka">formuläret</a>. Passar ert ärende vår tjänst ringer vi upp inom en arbetsdag för ett kort, kostnadsfritt samtal på cirka 15 minuter. Vi fångar upp det formuläret inte täcker och kommer överens om ifall vi ska gå vidare tillsammans. Helt utan förpliktelser.</p>
+        <p>Berätta kort om dödsboet i <a href="#boka">formuläret</a>. Passar ert ärende vår tjänst ringer vi upp inom 24 timmar för ett kort, kostnadsfritt samtal på cirka 15 minuter. Vi fångar upp det formuläret inte täcker och kommer överens om ifall vi ska gå vidare tillsammans. Helt utan förpliktelser.</p>
       </div>
       <div class="card reveal">
         <span class="num">02 — Genomgång &amp; process</span>
@@ -91,7 +120,7 @@
         <p>Inga timarvoden, inga tillägg.</p>
       </div>
       <div class="price-tag">
-        <span class="amount">7 995 kr</span>
+        <span class="amount">8 995 kr</span>
         <span class="terms">fast pris · inkl. moms</span>
       </div>
       <p class="price-note">Bouppteckningen betalas normalt med dödsboets medel. Saknas medel i dödsboet ansvarar beställaren för betalningen.</p>
@@ -99,7 +128,10 @@
   </div>
 </section>
 
-<!-- ============ TESTIMONIALS ============ -->
+<!-- ============ TESTIMONIALS (PAUSADE) ============
+ÅTERAKTIVERING: ta bort denna kommentar-inramning, byt namn/citat mot de bekräftade
+kundomdömena och sätt verkliga datum i data-datum (ÅÅÅÅ-MM-DD). "för X sedan"-texten
+räknas då ut automatiskt av skriptet längst ner på sidan.
 <section>
   <div class="container">
     <div class="section-head reveal">
@@ -112,7 +144,7 @@
           <div class="avatar">AL</div>
           <div class="review-who">
             <strong>Anna L.</strong>
-            <span>för 2 månader sedan</span>
+            <span class="review-datum" data-datum="2026-08-15"></span>
           </div>
         </div>
         <div class="stars">★★★★★</div>
@@ -123,25 +155,25 @@
           <div class="avatar">PE</div>
           <div class="review-who">
             <strong>Per E.</strong>
-            <span>för 4 månader sedan</span>
+            <span class="review-datum" data-datum="2026-06-15"></span>
           </div>
         </div>
         <div class="stars">★★★★★</div>
         <p>”Fast pris, precis som utlovat, och en och samma person som höll i allt från start till mål. Snabba svar på alla frågor och ett förrättningsmöte som var enkelt att delta i på distans. Fem stjärnor.”</p>
       </div>
     </div>
-    <!-- PLACEHOLDER: byt ut citaten mot de två riktiga kundomdömena -->
   </div>
 </section>
+SLUT TESTIMONIALS -->
 
 
 <!-- ============ FORMULÄR ============ -->
 <section id="boka" class="section-alt">
   <div class="container">
     <div class="section-head reveal">
-      <span class="eyebrow">Boka samtal</span>
-      <h2>Boka ett kostnadsfritt samtal</h2>
-      <p>Berätta kort om er situation så ringer vi upp för ett kostnadsfritt samtal på cirka 15 minuter. Ni förbinder er inte till någonting.</p>
+      <span class="eyebrow">Kostnadsfritt samtal</span>
+      <h2>Få ett kostnadsfritt samtal</h2>
+      <p>Fyll i formuläret så ringer vi upp dig inom 24 timmar för ett kostnadsfritt samtal på cirka 15 minuter. Du förbinder dig inte till någonting.</p>
     </div>
 
     <form class="form-wrap reveal" action="https://formspree.io/f/mqpzzdqz" method="POST">
@@ -222,7 +254,7 @@
 
         <p class="form-error" id="form-error" hidden>Något gick tyvärr fel när förfrågan skulle skickas. Försök igen om en stund, eller mejla oss direkt på <a href="mailto:christina@enkelbouppteckning.se">christina@enkelbouppteckning.se</a>.</p>
 
-        <p class="form-note">Enkel Bouppteckning är utformad för dödsbon med okomplicerade förhållanden. Vi ringer upp alla vars ärende passar tjänsten. Bedömer vi att ert dödsbo behöver en annan typ av hjälp återkopplar vi via e-post och hänvisar er gärna vidare.</p>
+        <p class="form-note">Enkel Bouppteckning är utformad för dödsbon med okomplicerade förhållanden. Vi ringer upp alla vars ärende passar tjänsten inom 24 timmar. Bedömer vi att ert dödsbo behöver en annan typ av hjälp återkopplar vi via e-post och hänvisar er gärna vidare.</p>
 
       </div>
     </form>
@@ -241,7 +273,7 @@
       <li><a href="bouppteckning.html">Bouppteckning</a></li>
       <li><a href="faq.html">Frågor &amp; svar</a></li>
       <li><a href="om-oss.html">Om oss</a></li>
-      <li><a href="index.html#boka">Boka samtal</a></li>
+      <li><a href="index.html#boka">Kostnadsfritt samtal</a></li>
       <li><a href="integritetspolicy.html">Integritetspolicy</a></li>
     </ul>
   </div>
@@ -278,6 +310,17 @@
 
   document.getElementById('btn-back').addEventListener('click', () => gotoStep(1));
 
+  // Automatisk "för X sedan" på kundomdömen (vilande medan sektionen är pausad)
+  document.querySelectorAll('.review-datum').forEach(el => {
+    const dagar = Math.floor((Date.now() - new Date(el.dataset.datum)) / 86400000);
+    let txt;
+    if (dagar < 7) txt = 'nyligen';
+    else if (dagar < 30) { const v = Math.floor(dagar / 7); txt = 'för ' + v + (v === 1 ? ' vecka' : ' veckor') + ' sedan'; }
+    else if (dagar < 365) { const m = Math.floor(dagar / 30); txt = 'för ' + m + (m === 1 ? ' månad' : ' månader') + ' sedan'; }
+    else { const a = Math.floor(dagar / 365); txt = 'för ' + a + ' år sedan'; }
+    el.textContent = txt;
+  });
+
   // Nästa steg-knappen aktiveras visuellt först när båda kryssrutorna är ifyllda
   const kvalRutor = [document.getElementById('chk-myndig'), document.getElementById('chk-medborgare')];
   function uppdateraNasta() {
@@ -308,7 +351,7 @@
         sessionStorage.setItem('eb_namn', data.get('namn') || '');
         sessionStorage.setItem('eb_epost', data.get('epost') || '');
       } catch (err) {}
-      window.location.href = 'boka-tid.html';
+      window.location.href = 'tack.html';
     } catch (err) {
       formError.hidden = false;
       btnSubmit.disabled = false;
