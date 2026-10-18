@@ -351,6 +351,14 @@ SLUT TESTIMONIALS -->
         sessionStorage.setItem('eb_namn', data.get('namn') || '');
         sessionStorage.setItem('eb_epost', data.get('epost') || '');
       } catch (err) {}
+      // SMS-avisering (fire-and-forget – får aldrig blockera eller stoppa flödet)
+      try {
+        fetch('/api/notify', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ namn: data.get('namn') || '', telefon: data.get('telefon') || '', relation: data.get('relation') || '', dodsdatum: data.get('dodsdatum') || '' })
+        }).catch(() => {});
+      } catch (err) {}
       window.location.href = 'tack.html';
     } catch (err) {
       formError.hidden = false;
