@@ -15,7 +15,9 @@ export default async function handler(req, res) {
     return res.status(403).json({ error: 'forbidden' });
   }
 
-  const { ELKS_USER, ELKS_PASS, SMS_TO } = process.env;
+  const ELKS_USER = (process.env.ELKS_USER || '').trim();
+  const ELKS_PASS = (process.env.ELKS_PASS || '').trim();
+  const SMS_TO = (process.env.SMS_TO || '').trim();
   if (!ELKS_USER || !ELKS_PASS || !SMS_TO) {
     return res.status(500).json({ error: 'not configured' });
   }
