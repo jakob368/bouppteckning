@@ -36,8 +36,11 @@ export default async function handler(req, res) {
     body: new URLSearchParams({ from: 'EnkelBoupp', to: SMS_TO, message })
   });
 
+  const svar = await r.text();
   if (!r.ok) {
+    console.log('46elks nekade (' + r.status + '): ' + svar);
     return res.status(502).json({ error: 'sms failed' });
   }
+  console.log('46elks OK: ' + svar);
   return res.status(200).json({ ok: true });
 }
